@@ -6,12 +6,16 @@
     v-slot="{ item }"
     ref="userList"
   >
-    <UserDetails :user="item"/>
+    <UserDetails 
+      :user="item"
+      @userToggled="onUserToggle"
+    />
   </RecycleScroller>
 </template>
 
 <script>
 import UserDetails from '~/components/UserDetails'
+import { mapMutations } from 'vuex'
 
 export default ({
   name: 'IndexPage',
@@ -26,6 +30,14 @@ export default ({
   },
   mounted () {
     this.$emit('listRefGenerated', this.$refs.userList)
+  },
+  methods: {
+    ...mapMutations([
+      'toggleSelectedUser'
+    ]),
+    onUserToggle (userEmail) {
+      this.toggleSelectedUser(userEmail)
+    }
   }
 })
 </script>

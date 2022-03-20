@@ -2,7 +2,6 @@
   <div>
     <SearchIcon />
     <input 
-      v-model="value" 
       @input="onInput"
     />
   </div>
@@ -17,10 +16,6 @@ export default ({
     debounceDelay: {
       type: Number,
       default: 500
-    },
-    value: {
-      type: String,
-      default: ''
     }
   },
   data: () => ({
