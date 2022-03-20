@@ -98,7 +98,8 @@ export default ({
       width: 100%;
       display: flex;
       position: relative;
-      box-shadow: 0px 0px 2px 0px #0000001F;
+      box-shadow: 0px 2px 2px 0px #0000003D;
+
       background: #fafafa;
 
       input {
