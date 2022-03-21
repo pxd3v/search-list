@@ -65,7 +65,8 @@ export default ({
     }
 
     img {
-      height: 100%;
+      height: 150px;
+      width: 210px;
       background-color: #ccc;
     }
 
