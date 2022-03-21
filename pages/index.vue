@@ -93,7 +93,8 @@ export default ({
     flex-direction: column;
     background: #fff;
     padding: 12px;
-
+    width: 80%;
+    max-width: 600px;
     &__input-container {
       width: 100%;
       display: flex;
@@ -120,28 +121,9 @@ export default ({
 
     &__scroller {
       height: 600px;
-      width: 600px;
+      width: 100%;
       margin-top: 12px;
     }
   }
-
-  
-
-  .user {
-    border-radius: 3px;
-    display: flex;
-    flex-direction: row;
-    height: 150px;
-    box-shadow: 0px 2px 2px 0px #0000003D;
-    background: #FAFAFA;
-
-
-    img {
-      height: 100%;
-      background-color: #ccc;
-    }
-  }
-
-  
 </style>
 

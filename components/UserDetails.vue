@@ -87,9 +87,11 @@ export default ({
       }
 
       .user-status {
-        margin-top: 24px;
+        margin-top: 16px;
+        padding-top: 8px;
         font-size: 14px;
         color: #009688;
+        border-top: 1px solid #ddd;
       }
 
       span {
@@ -101,6 +103,28 @@ export default ({
           font-size: 24px;
           color: rgba(0, 0, 0, 0.87);
           line-height: 32px;
+        }
+      }
+    }
+  }
+  
+  @media only screen and (max-width: 1024px) {
+    .user {
+      &__info {
+        p {
+          font-size: 10px;
+          line-height: 14px;
+        }
+
+        .user-status {
+          font-size: 10px;
+        }
+
+        span {
+          h2 {
+            font-size: 16px;
+            line-height: 24px;
+          }
         }
       }
     }
