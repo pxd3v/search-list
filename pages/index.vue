@@ -75,7 +75,7 @@ export default ({
 })
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .app-container {
     height: 100vh;
     width: 100vw;
@@ -95,6 +95,7 @@ export default ({
     padding: 12px;
     width: 80%;
     max-width: 700px;
+
     &__input-container {
       width: 100%;
       display: flex;
