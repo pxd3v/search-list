@@ -55,7 +55,7 @@ export default ({
     border-radius: 3px;
     display: flex;
     flex-direction: row;
-    height: 150px;
+    height: 164px;
     box-shadow: 0px 2px 2px 0px #0000003D;
     background: #FAFAFA;
 
@@ -65,7 +65,7 @@ export default ({
     }
 
     img {
-      height: 150px;
+      height: 164px;
       width: 210px;
       background-color: #ccc;
     }

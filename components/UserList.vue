@@ -1,7 +1,7 @@
 <template>
   <RecycleScroller
     :items="users"
-    :item-size="164"
+    :item-size="180"
     key-field="email"
     v-slot="{ item }"
     ref="userList"

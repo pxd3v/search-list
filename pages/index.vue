@@ -94,7 +94,7 @@ export default ({
     background: #fff;
     padding: 12px;
     width: 80%;
-    max-width: 600px;
+    max-width: 700px;
     &__input-container {
       width: 100%;
       display: flex;
