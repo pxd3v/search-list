@@ -47,7 +47,7 @@ export default {
     }
   },
   env: {
-    baseURL: (process.env.NODE_ENV === 'production' ? 'https://search-list-pxd3v.vercel.app/' : 'http://localhost:3000')
+    baseURL: (process.env.NODE_ENV === 'production' ? 'https://search-list.vercel.app/' : 'http://localhost:3000')
   },
   googleFonts: {
     download: true,
