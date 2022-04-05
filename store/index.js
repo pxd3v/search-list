@@ -1,6 +1,7 @@
 export const state = () => ({
   users: [],
-  selectedUsers: {}
+  selectedUsers: {},
+  search: ''
 })
 
 export const mutations = {
@@ -12,6 +13,9 @@ export const mutations = {
       ...state.selectedUsers,
       [userEmail]:!state.selectedUsers[userEmail] 
     }
+  },
+  setSearch(state, search) {
+    state.search = search
   }
 }
 

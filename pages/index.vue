@@ -16,8 +16,7 @@
 
 <script>
 import SearchInput from '~/components/SearchInput'
-import * as sanitizeHtml from 'sanitize-html';
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapActions, mapMutations } from 'vuex'
 
 export default ({
   name: 'IndexPage',
@@ -42,28 +41,20 @@ export default ({
     ...mapActions([
       'fetchUsers'
     ]),
+    ...mapMutations([
+      'setSearch'
+    ]),
     filterUsers (users, search) {
       if(!search) return users
 
-      return users.reduce((acc, user) => {
+      return users.filter(user => {
         const { address, city, email, name, title } = user
         const userDetails = `/${address}/${city}/${email}/${name}/${title}`.toLowerCase()
-        const isAMatch = userDetails.includes(search.toLowerCase())
-        if (isAMatch) {
-          const highlightMatch = (value) => sanitizeHtml(value.replace(new RegExp(search, "gi"), (match) => `<mark>${match}</mark>`))
-          acc.push({
-            ...user,
-            address: highlightMatch(address),
-            city: highlightMatch(city),
-            email: highlightMatch(email),
-            name: highlightMatch(name),
-            title: highlightMatch(title)
-          })
-        }
-        return acc
-      }, [])
+        return userDetails.includes(search.toLowerCase())
+      })
     },
     onSearch (searchResult) {
+      this.setSearch(searchResult)
       const { filterUsers, users } = this
       this.filteredUsers = filterUsers(users, searchResult)
       this.listRef.scrollToPosition(0)

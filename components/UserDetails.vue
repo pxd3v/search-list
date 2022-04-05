@@ -6,11 +6,11 @@
       <img :src="user.avatar" :key="user.email" alt="User profile picture">
       <div class="user__info">
         <span>
-          <h2 v-html="user.name" />
-          <p v-html="user.email" />
+          <h2 v-html="name" />
+          <p v-html="email" />
         </span>
-        <p class="user-title" v-html="user.title" />
-        <p class="user-address" v-html="getFullAddress(user.address, user.city)" />
+        <p class="user-title" v-html="title" />
+        <p class="user-address" v-html="getFullAddress(address, city)" />
         <p class="user-status"> 
           {{ status }}
         </p>
@@ -20,6 +20,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import * as sanitizeHtml from 'sanitize-html';
 
 export default ({
   name: 'UserDetails',
@@ -31,15 +32,34 @@ export default ({
   },
   computed: {
     ...mapState([
-      'selectedUsers'
+      'selectedUsers',
+      'search'
     ]),
     status () {
       return this.selectedUsers[this.user.email] ? 'SKIP SELECTION' : 'MARK AS SIUTABLE'
+    },
+    address () {
+      return this.highlightMatch(this.user.address, this.search)
+    },
+    city () {
+      return this.highlightMatch(this.user.city, this.search)
+    },
+    email () {
+      return this.highlightMatch(this.user.email, this.search)
+    },
+    name () {
+      return this.highlightMatch(this.user.name, this.search)
+    },
+    title () {
+      return this.highlightMatch(this.user.title, this.search)
     }
   },
   methods: {
     getFullAddress (address, city) {
       return `${address}, ${city}`
+    },
+    highlightMatch (value, search) {
+      return sanitizeHtml(value.replace(new RegExp(search, "gi"), (match) => `<mark>${match}</mark>`))
     }
   }
 })
